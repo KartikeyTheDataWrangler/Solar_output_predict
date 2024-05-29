@@ -2,7 +2,7 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_url1: 
+  source_url1: r'https://drive.google.com/file/d/15W2gIBC9KvNxOSNKPOsxB-9dn7FF9bQ'
   source_url2: 
   local_generation_data: artifacts/data_ingestion/generation.csv
   local_weather_data: artifacts/data_ingestion/weather.csv
