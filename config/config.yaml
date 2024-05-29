@@ -1,0 +1,11 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_url1: 
+  source_url2: 
+  local_generation_data: artifacts/data_ingestion/generation.csv
+  local_weather_data: artifacts/data_ingestion/weather.csv
+  
+
+
