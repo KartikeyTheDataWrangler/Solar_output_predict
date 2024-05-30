@@ -2,10 +2,13 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_url1: 
-  source_url2: 
+  source_url1: https://drive.google.com/uc?id=1J9khkxCng-rD4E8vtuJt8Ga1JnGgYuk-
+  source_url2: https://drive.google.com/uc?id=15W2gIBC9KvNxOSNKPOsxB-9dn7FF9bQ- 
   local_generation_data: artifacts/data_ingestion/generation.csv
   local_weather_data: artifacts/data_ingestion/weather.csv
   
 
 
+#https://drive.google.com/file/d/1J9khkxCng-rD4E8vtuJt8Ga1JnGgYuk-/view?usp=sharing
+
+#https://drive.google.com/file/d/15W2gIBC9KvNxOSNKPOsxB-9dn7FF9bQ-/view?usp=drive_link

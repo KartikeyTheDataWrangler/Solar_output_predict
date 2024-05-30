@@ -13,7 +13,7 @@ data/live
 data/preprocesssed
 data/raw
 # except their sub-folders
-
+artifacts/
 #image_app/artifacts/
 # also keep all .gitkeep files
 !.gitkeep
