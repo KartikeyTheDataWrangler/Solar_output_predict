@@ -13,7 +13,7 @@ class DataIngestionConfig:
 @dataclass(frozen=True)
 class DataTransformationConfig:
     root_dir: Path
-    transformer_obj_path: Path
+    transformed_data_path: Path
     local_generation_data: Path
     local_weather_data: Path
    

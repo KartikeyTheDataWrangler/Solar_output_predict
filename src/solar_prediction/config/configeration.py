@@ -32,10 +32,11 @@ class ConfigurationManager:
         
         transformer_validated = DataTransformationConfig(
             root_dir=config_yaml_values.root_dir,
-            transformer_obj_path=config_yaml_values.transformer_obj_path,
+            transformed_data_path=config_yaml_values.transformed_data_path,
             local_generation_data=config_yaml_values.local_generation_data,
             local_weather_data=config_yaml_values.local_weather_data,
         )
+        create_directories(dir_path=[transformer_validated.root_dir])
         return transformer_validated
 
 

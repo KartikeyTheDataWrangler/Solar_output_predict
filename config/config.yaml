@@ -8,8 +8,8 @@ data_ingestion:
   local_weather_data: artifacts/data/weather.csv
   
 data_transformer:
-  root_dir : artifacts/transformer
-  transformer_obj_path : artifacts/transformer/transformer.joblib
+  root_dir : artifacts/transformer_data
+  transformed_data_path : artifacts/transformer_data/transormed_data.csv
   local_generation_data: artifacts/data/generation.csv
   local_weather_data: artifacts/data/weather.csv
 
