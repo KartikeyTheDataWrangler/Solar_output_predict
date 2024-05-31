@@ -10,4 +10,11 @@ class DataIngestionConfig:
     local_generation_data: Path
     local_weather_data: Path
     
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    transformer_obj_path: Path
+    local_generation_data: Path
+    local_weather_data: Path
+   
   

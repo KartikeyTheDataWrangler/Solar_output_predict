@@ -7,8 +7,7 @@ import sys
 from box.exceptions import BoxValueError
 from box import ConfigBox
 from pathlib import Path
-from typing import Any
-import base64
+#import dill 
 from solar_prediction import logger
 from solar_prediction import CustomException
 
@@ -33,7 +32,17 @@ def create_directories(dir_path: list):
     except Exception as e:
         raise CustomException(e,sys) 
         
+def save_object(file_path, obj):
+    try:
+        dir_path = os.path.dirname(file_path)
 
+        os.makedirs(dir_path, exist_ok=True)
+        logger.info(f"saving object {obj} in location {file_path}")
+        with open(file_path, "wb") as file_obj:
+            joblib.dump(obj, file_obj)
+    
+    except Exception as e:
+        raise CustomException(e,sys)
     
 
 

@@ -1,13 +1,17 @@
 artifacts_root: artifacts
 
 data_ingestion:
-  root_dir: artifacts/data_ingestion
+  root_dir: artifacts/data
   source_url1: https://drive.google.com/uc?id=1J9khkxCng-rD4E8vtuJt8Ga1JnGgYuk-
   source_url2: https://drive.google.com/uc?id=15W2gIBC9KvNxOSNKPOsxB-9dn7FF9bQ- 
-  local_generation_data: artifacts/data_ingestion/generation.csv
-  local_weather_data: artifacts/data_ingestion/weather.csv
+  local_generation_data: artifacts/data/generation.csv
+  local_weather_data: artifacts/data/weather.csv
   
-
+data_transformer:
+  root_dir : artifacts/transformer
+  transformer_obj_path : artifacts/transformer/transformer.joblib
+  local_generation_data: artifacts/data/generation.csv
+  local_weather_data: artifacts/data/weather.csv
 
 #https://drive.google.com/file/d/1J9khkxCng-rD4E8vtuJt8Ga1JnGgYuk-/view?usp=sharing
 
