@@ -1,7 +1,7 @@
 import os, sys
 from solar_prediction.constants import *
 from solar_prediction.utils.common import read_yaml, create_directories
-from solar_prediction.entity.config_entity import (DataIngestionConfig, DataTransformationConfig)
+from solar_prediction.entity.config_entity import (DataIngestionConfig, DataTransformationConfig,ModelTrainerConfig)
 
 
 class ConfigurationManager:
@@ -38,6 +38,21 @@ class ConfigurationManager:
         )
         create_directories(dir_path=[transformer_validated.root_dir])
         return transformer_validated
+    
+    def model_trainer_validated(self) -> ModelTrainerConfig:
+        config_yaml_values = self.config.model_trainer
+
+        trainer_validated = ModelTrainerConfig(
+            root_dir=config_yaml_values.root_dir,
+            transformed_data_path=config_yaml_values.transformed_data_path,
+            saved_model_path=config_yaml_values.saved_model_path)
+        create_directories([trainer_validated.root_dir])
+        return trainer_validated
+
+
+        
+    
+
 
 
 

@@ -8,10 +8,21 @@ data_ingestion:
   local_weather_data: artifacts/data/weather.csv
   
 data_transformer:
-  root_dir : artifacts/transformer_data
-  transformed_data_path : artifacts/transformer_data/transormed_data.csv
+  root_dir : artifacts/transformed_data
+  transformed_data_path : artifacts/transformed_data/transormed_data.csv
   local_generation_data: artifacts/data/generation.csv
   local_weather_data: artifacts/data/weather.csv
+
+model_trainer:
+  root_dir: artifacts/model
+  transformed_data_path : artifacts/transformed_data/transormed_data.csv
+  saved_model_path : artifacts/model/trainedmodel.joblib
+
+
+
+
+
+
 
 #https://drive.google.com/file/d/1J9khkxCng-rD4E8vtuJt8Ga1JnGgYuk-/view?usp=sharing
 

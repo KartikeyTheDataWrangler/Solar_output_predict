@@ -1,7 +1,6 @@
 import sys
 from solar_prediction import logger,CustomException
 from solar_prediction.config.configeration import ConfigurationManager
-from solar_prediction.utils.common import create_directories, save_object
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 

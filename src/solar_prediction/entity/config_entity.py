@@ -16,5 +16,12 @@ class DataTransformationConfig:
     transformed_data_path: Path
     local_generation_data: Path
     local_weather_data: Path
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    transformed_data_path: Path
+    saved_model_path: Path
+   
    
   
