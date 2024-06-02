@@ -45,7 +45,11 @@ class ConfigurationManager:
         trainer_validated = ModelTrainerConfig(
             root_dir=config_yaml_values.root_dir,
             transformed_data_path=config_yaml_values.transformed_data_path,
-            saved_model_path=config_yaml_values.saved_model_path)
+            saved_base_model_path=config_yaml_values.saved_base_model_path,
+            saved_modified_model_path= config_yaml_values.saved_modified_model_path,
+        )
+        
+        
         create_directories([trainer_validated.root_dir])
         return trainer_validated
 

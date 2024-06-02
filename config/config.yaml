@@ -16,7 +16,8 @@ data_transformer:
 model_trainer:
   root_dir: artifacts/model
   transformed_data_path : artifacts/transformed_data/transormed_data.csv
-  saved_model_path : artifacts/model/trainedmodel.joblib
+  saved_base_model_path : artifacts/model/trained_model.joblib
+  saved_modified_model_path: artifacts/model/trained_model_modified.joblib
 
 
 

@@ -21,7 +21,8 @@ class DataTransformationConfig:
 class ModelTrainerConfig:
     root_dir: Path
     transformed_data_path: Path
-    saved_model_path: Path
+    saved_base_model_path: Path
+    saved_modified_model_path: Path
    
    
   
