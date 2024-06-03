@@ -3,9 +3,10 @@ from solar_prediction import logger,CustomException
 from solar_prediction.config.configeration import ConfigurationManager
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split,GridSearchCV
 from sklearn.metrics import mean_squared_error, r2_score
-from solar_prediction.utils.common import save_object
+from solar_prediction.utils.common import save_object, read_object
+import mlflow
 
 class ModelTRainer:
     def __init__(self, config):
@@ -21,28 +22,51 @@ class ModelTRainer:
             print(X_train, y_train)
             
             rfr = RandomForestRegressor()
-            model = rfr.fit(X_train, y_train)
-            pred = model.predict(X_test)
+           
             
-            mse = mean_squared_error(y_test, pred)
-            r2 = r2_score(y_test, pred)
+            param_rf = {
+            'n_estimators': [25,50],
+                'max_depth': [2, 4, 6,8,10 ],
+            'min_samples_leaf': [ 6,8,10,12,15],
+                'criterion' :['squared_error', 'squared_error'],
+                }
+            grid_search = GridSearchCV(estimator=rfr, param_grid=param_rf, cv=2, n_jobs=-1)
+            grid_search.fit(X_train, y_train)
+
+            best_model = grid_search.best_estimator_
             
-            save_object(file_path=self.config.saved_base_model_path,obj=model)
-            print(mse, r2)
-            
+            save_object(file_path=self.config.saved_base_model_path,obj=best_model)
+            logger.info('Best Model Saved succesfully')
+            return X_test, y_test
         
         except Exception as e:
             CustomException(e,sys)
-            
-        
-        
-        
                 
-    def mlflow_dagshub_logging(self):
-       print(self.config) 
-       pass 
+    def mlflow_dagshub_logging(self,X_test,y_test):
+        try:
+           
+            
+            exp = mlflow.set_experiment(experiment_name='solar_panel_prediction')
+            model_path = self.config.saved_base_model_path
+            model = read_object(file_path=model_path)
+            logger.info('best model loaded succesfully')
+            with mlflow.start_run():
+                pred = model.predict(X_test)
+                mse = mean_squared_error(y_test, pred)
+                r2 = r2_score(y_test, pred)
+                
+                metrics = {"mse":mse, "r2": r2}
+                
+                mlflow.log_metrics(metrics)
+                mlflow.log_params(model.get_params())
+            
+        except Exception as e:
+            CustomException(e,sys)
+       
  
  
 if __name__=="__main__":  
     train_model = ModelTRainer(config=ConfigurationManager().model_trainer_validated())
-    train_model.train_base_model()
+    X_test, y_test = train_model.train_base_model()
+    train_model.mlflow_dagshub_logging(X_test, y_test)
+  
