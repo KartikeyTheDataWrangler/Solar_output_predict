@@ -19,7 +19,7 @@ class ModelTRainer:
             X = df[['DAILY_YIELD','TOTAL_YIELD','AMBIENT_TEMPERATURE','MODULE_TEMPERATURE','IRRADIATION','DC_POWER']]
             y = df['AC_POWER']
             X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)
-            print(X_train, y_train)
+            #print(X_train, y_train)
             
             rfr = RandomForestRegressor()
            
@@ -45,7 +45,6 @@ class ModelTRainer:
     def mlflow_dagshub_logging(self,X_test,y_test):
         try:
            
-            
             exp = mlflow.set_experiment(experiment_name='solar_panel_prediction')
             model_path = self.config.saved_base_model_path
             model = read_object(file_path=model_path)

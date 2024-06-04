@@ -22,7 +22,7 @@ class DataTransformation:
             encoder = LabelEncoder()
             df_solar['SOURCE_KEY_NUMBER'] = encoder.fit_transform(df_solar['SOURCE_KEY'])
             df_solar.to_csv(path_or_buf=self.config.transformed_data_path)
-            print(df_solar)
+            #print(df_solar)
         except Exception as e:
             raise CustomException(e,sys)
     
