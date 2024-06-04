@@ -46,6 +46,7 @@ class ModelTRainer:
         try:
            
             exp = mlflow.set_experiment(experiment_name='solar_panel_prediction')
+            
             model_path = self.config.saved_base_model_path
             model = read_object(file_path=model_path)
             logger.info('best model loaded succesfully')
