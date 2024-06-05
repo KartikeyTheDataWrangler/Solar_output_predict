@@ -3,11 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Result</title>
+    <title>Output Prediction</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #FAFAFA;
+            color: #212121;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #3F51B5;
+            margin-bottom: 20px;
+        }
+        p {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            color: #3F51B5;
+            font-size: 18px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #3F51B5;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        a:hover {
+            background: #303F9F;
+        }
+        .parabola-left, .parabola-right {
+            position: absolute;
+            top: 50%;
+            width: 20%;
+            height: 100%;
+            transform: translateY(-50%) scaleX(2);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        .parabola-left {
+            left: -10%;
+            background: radial-gradient(circle at left, rgba(255, 138, 101, 0.5), transparent);
+        }
+        .parabola-right {
+            right: -10%;
+            background: radial-gradient(circle at right, rgba(152, 245, 201, 0.5), transparent);
+        }
+    </style>
 </head>
 <body>
-    <h1>Prediction Result</h1>
-    <p>The predicted value is: {{ prediction }}</p>
+    <div class="parabola-left"></div>
+    <div class="parabola-right"></div>
+    <h1>Prediction:</h1>
+    <p>The estimated power output of the given Solar Module is: {{ prediction }}</p>
     <br>
     <a href="/">Go back to the form</a>
 </body>

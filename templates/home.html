@@ -4,34 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Form</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #FAFAFA;
+            color: #212121;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #3F51B5;
+            margin-bottom: 20px;
+        }
+        form {
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            color: #3F51B5;
+            font-size: 16px;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #E0E0E0;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        button, input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #3F51B5;
+            color: #FFFFFF;
+            transition: background 0.3s ease;
+        }
+        button:hover, input[type="submit"]:hover {
+            background: #303F9F;
+        }
+        button.mlflow-ui {
+            background: #FF5722;
+        }
+        button.mlflow-ui:hover {
+            background: #E64A19;
+        }
+        .parabola-left, .parabola-right {
+            position: absolute;
+            top: 50%;
+            width: 20%;
+            height: 100%;
+            transform: translateY(-50%) scaleX(2);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        .parabola-left {
+            left: -10%;
+            background: radial-gradient(circle at left, rgba(255, 138, 101, 0.5), transparent);
+        }
+        .parabola-right {
+            right: -10%;
+            background: radial-gradient(circle at right, rgba(152, 245, 201, 0.5), transparent);
+        }
+    </style>
 </head>
 <body>
-    <h1>Prediction Form</h1>
+    <div class="parabola-left"></div>
+    <div class="parabola-right"></div>
+    <h1>Solar Panel Output Prediction</h1>
     <form action="/predict" method="post">
-       
         <label for="dc_power">DC Power:</label>
-        <input type="number" id="dc_power" name="dc_power" required><br><br>
+        <input type="number" id="dc_power" name="dc_power" required><br>
 
         <label for="daily_yield">Daily Yield:</label>
-        <input type="number" id="daily_yield" name="daily_yield" required><br><br>
+        <input type="number" id="daily_yield" name="daily_yield" required><br>
 
         <label for="total_yield">Total Yield:</label>
-        <input type="number" id="total_yield" name="total_yield"><br><br>
+        <input type="number" id="total_yield" name="total_yield"><br>
 
         <label for="ambient_temp">Ambient Temperature:</label>
-        <input type="number" id="ambient_temp" name="ambient_temp"><br><br>
+        <input type="number" id="ambient_temp" name="ambient_temp"><br>
 
         <label for="module_temp">Module Temperature:</label>
-        <input type="number" id="module_temp" name="module_temp"><br><br>
+        <input type="number" id="module_temp" name="module_temp"><br>
 
         <label for="irradiation">Irradiation:</label>
-        <input type="number" id="irradiation" name="irradiation"><br><br>
+        <input type="number" id="irradiation" name="irradiation"><br>
 
-        <button type="submit">Predict</button>
-    </form>
-    <br>
-    <form action="/mlflow_ui" method="get">
-        <input type="submit" value="MLflow UI">
+        <div class="button-container">
+            <button type="submit">Predict</button>
+            <button type="submit" class="mlflow-ui" formaction="/mlflow_ui" formmethod="get">MLflow UI</button>
+        </div>
     </form>
 </body>
 </html>

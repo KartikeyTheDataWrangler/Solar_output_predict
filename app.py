@@ -27,13 +27,13 @@ def predict():
             'module_temp': request.form['module_temp'],
             'irradiation': request.form['irradiation'],
         }
-
+        
         print(data)
         input = np.array(list(data.values()), dtype=int).reshape(1,-1)
         prediction = model.predict(input)
     
         print(prediction)
-        return render_template('result.html', prediction=prediction)
+        return render_template('result.html', prediction=prediction[0])
     
     except Exception as e:
         print(f"error occured {e} ")
