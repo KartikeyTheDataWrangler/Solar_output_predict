@@ -1,11 +1,11 @@
 import sys
-from solar_prediction import logger,CustomException
-from solar_prediction.config.configeration import ConfigurationManager
+from src.solar_prediction import logger,CustomException
+from src.solar_prediction.config.configeration import ConfigurationManager
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split,GridSearchCV
 from sklearn.metrics import mean_squared_error, r2_score
-from solar_prediction.utils.common import save_object, read_object
+from src.solar_prediction.utils.common import save_object, read_object
 import mlflow
 
 class ModelTRainer:

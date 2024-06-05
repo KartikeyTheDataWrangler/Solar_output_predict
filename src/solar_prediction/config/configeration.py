@@ -1,7 +1,7 @@
 import os, sys
-from solar_prediction.constants import *
-from solar_prediction.utils.common import read_yaml, create_directories
-from solar_prediction.entity.config_entity import (DataIngestionConfig, DataTransformationConfig,ModelTrainerConfig)
+from src.solar_prediction.constants import *
+from src.solar_prediction.utils.common import read_yaml, create_directories
+from src.solar_prediction.entity.config_entity import (DataIngestionConfig, DataTransformationConfig,ModelTrainerConfig)
 
 
 class ConfigurationManager:

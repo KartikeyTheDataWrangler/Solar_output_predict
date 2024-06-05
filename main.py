@@ -1,4 +1,4 @@
-from solar_prediction import logger
+from src.solar_prediction import logger
 from box import ConfigBox
 logger.info("welcome")
 from src.solar_prediction.pipelines import training_pipeline
