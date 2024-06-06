@@ -1,4 +1,4 @@
-name: CI-CDC
+name: CI-CD
 
 
 on: 
@@ -34,12 +34,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          lfs: true
-      - name: Push to hub
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          
+          lfs: false
+      - name: push to hub    
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
