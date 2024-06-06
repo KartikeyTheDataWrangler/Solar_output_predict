@@ -41,7 +41,7 @@ def predict():
 @app.route('/mlflow_ui')
 def mlflow_ui():
 
-    return redirect('https://huggingface.co/spaces/tmkartikey/creditcard3', code=302)
+    return redirect('https://dagshub.com/KartikeyTheDataWrangler/Solar_output_predict.mlflow', code=302)
 
 if __name__ == '__main__':
     app.run(debug=True)

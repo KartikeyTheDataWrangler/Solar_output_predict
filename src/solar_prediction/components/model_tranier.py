@@ -6,8 +6,10 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split,GridSearchCV
 from sklearn.metrics import mean_squared_error, r2_score
 from src.solar_prediction.utils.common import save_object, read_object
-import mlflow
+import mlflow, os
+from dotenv import load_dotenv
 
+load_dotenv('.env')
 class ModelTRainer:
     def __init__(self, config):
         self.config = config
@@ -26,8 +28,8 @@ class ModelTRainer:
             
             param_rf = {
             'n_estimators': [25,50],
-                'max_depth': [2, 4, 6,8,10 ],
-            'min_samples_leaf': [ 6,8,10,12,15],
+                'max_depth': [8,10 ],
+            'min_samples_leaf': [10,12,15],
                 'criterion' :['squared_error', 'squared_error'],
                 }
             grid_search = GridSearchCV(estimator=rfr, param_grid=param_rf, cv=2, n_jobs=-1)
@@ -44,9 +46,10 @@ class ModelTRainer:
                 
     def mlflow_dagshub_logging(self,X_test,y_test):
         try:
-           
+            DAGSHUB_USER = os.getenv('MLFLOW_TRACKING_USERNAME')
+            DAGS_URI = os.getenv('MLFLOW_TRACKING_URI ')
             exp = mlflow.set_experiment(experiment_name='solar_panel_prediction')
-            
+            mlflow.set_tracking_uri(DAGS_URI)
             model_path = self.config.saved_base_model_path
             model = read_object(file_path=model_path)
             logger.info('best model loaded succesfully')
