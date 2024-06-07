@@ -57,4 +57,4 @@ def read_object(file_path):
 if __name__=="__main__":
     con = read_yaml(yaml_path="config\config.yaml")
     de = con.data_ingestion
-    print(de.root_dir)
+    print(de)
