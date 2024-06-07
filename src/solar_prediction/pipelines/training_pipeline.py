@@ -1,9 +1,9 @@
 import gdown,sys
-from src.solar_prediction import logger,CustomException
-from src.solar_prediction.config.configeration import ConfigurationManager
-from src.solar_prediction.components.data_ingestion import DataIngestion
-from src.solar_prediction.components.data_transformation import DataTransformation
-from src.solar_prediction.components.model_tranier import ModelTRainer
+from solar_prediction import logger,CustomException
+from solar_prediction.config.configeration import ConfigurationManager
+from solar_prediction.components.data_ingestion import DataIngestion
+from solar_prediction.components.data_transformation import DataTransformation
+from solar_prediction.components.model_tranier import ModelTRainer
 
 logger.info(">>>>>>>>> Data Ingestion Started <<<<<<<<<<<")
 ingestion_cofig = ConfigurationManager().config_validator()
