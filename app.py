@@ -44,4 +44,4 @@ def mlflow_ui():
     return redirect('https://dagshub.com/KartikeyTheDataWrangler/Solar_output_predict.mlflow', code=302)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5000)
