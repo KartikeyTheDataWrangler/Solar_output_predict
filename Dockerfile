@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r req.txt
 
 EXPOSE 5000
 
-
+RUN ["pip", "install", "-e", "."]
 RUN ["python", "main.py"]
 
 CMD ["python", 'app.py']
