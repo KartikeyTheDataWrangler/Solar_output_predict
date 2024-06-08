@@ -8,8 +8,8 @@ from box.exceptions import BoxValueError
 from box import ConfigBox
 from pathlib import Path
 #import dill 
-from solar_prediction import logger
-from solar_prediction import CustomException
+from src.solar_prediction import logger
+from src.solar_prediction import CustomException
 
 def read_yaml(yaml_path: Path):
     try:

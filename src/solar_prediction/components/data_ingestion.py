@@ -1,7 +1,7 @@
 import gdown,sys
-from solar_prediction import logger,CustomException
-from solar_prediction.config.configeration import ConfigurationManager
-from solar_prediction.utils.common import create_directories
+from src.solar_prediction import logger,CustomException
+from src.solar_prediction.config.configeration import ConfigurationManager
+from src.solar_prediction.utils.common import create_directories
 
 class DataIngestion:
     def __init__(self, config):
