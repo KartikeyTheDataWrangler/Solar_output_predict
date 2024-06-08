@@ -27,9 +27,9 @@ class ModelTRainer:
            
             
             param_rf = {
-            'n_estimators': [25,50],
+            'n_estimators': [50],
                 'max_depth': [8,10 ],
-            'min_samples_leaf': [10,12,15],
+            'min_samples_leaf': [12,15],
                 'criterion' :['squared_error', 'squared_error'],
                 }
             grid_search = GridSearchCV(estimator=rfr, param_grid=param_rf, cv=2, n_jobs=-1)
