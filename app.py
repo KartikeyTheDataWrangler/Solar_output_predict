@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 
-from solar_prediction.config.configeration import ConfigurationManager
-from solar_prediction.utils.common import read_object
+from src.solar_prediction.config.configeration import ConfigurationManager
+from src.solar_prediction.utils.common import read_object
 import numpy as np
 
 app = Flask(__name__)

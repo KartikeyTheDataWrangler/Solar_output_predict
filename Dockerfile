@@ -13,4 +13,4 @@ EXPOSE 5000
 RUN ["pip", "install", "-e", "."]
 RUN ["python", "main.py"]
 
-CMD ["python", 'app.py']
+CMD ["python", "app.py"]
